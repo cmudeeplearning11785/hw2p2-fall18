@@ -2,6 +2,7 @@ from __future__ import print_function
 import os
 import sys
 import numpy as np
+from tqdm import tqdm
 
 
 ## VAD Parameters ##
@@ -13,7 +14,7 @@ assert(VAD_MIN_NFRAMES >= 1)
 
 
 def bulk_VAD(feats):
-    return [normalize(VAD(utt)) for utt in feats]
+    return [normalize(VAD(utt)) for utt in tqdm(feats)]
 
 
 def VAD(utterance):

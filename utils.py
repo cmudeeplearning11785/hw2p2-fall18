@@ -1,8 +1,8 @@
 from __future__ import print_function
 
 import os
-from tqdm import tqdm
 import numpy as np
+from tqdm import tqdm
 from scipy.optimize import brentq
 from scipy.interpolate import interp1d
 from sklearn.metrics import roc_curve
