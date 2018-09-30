@@ -29,7 +29,12 @@ def normalize(utterance):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3 or sys.argv[2] not in list(map(str, range(1, 7))) + ["dev", "test"]:
-        print("Usage:", sys.argv[0], "<path to npz files>", "<chunk among {1, 2, .., 6, dev, test}>")
+        print("Usage: python2", sys.argv[0], "<path to npz files>", "<chunk among {1, 2, .., 6, dev, test}>")
+        exit(0)
+    
+    if sys.version_info.major != 2:
+        print("\nWarning: We strongly recommend using Python 2 when running this script.\n"
+              "Otherwise, np.savez() may write to disk somewhat larger npz files (or fail, for some installations).\n")
         exit(0)
 
     path, part = sys.argv[1], sys.argv[2]
